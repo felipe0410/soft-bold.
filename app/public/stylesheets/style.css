@@ -6,3 +6,28 @@ body {
 a {
   color: #00B7FF;
 }
+
+:root {
+  --primario: #ccaaa9;
+  --secundario: #e4c1c0;
+  --blanco : #ffffff;
+  --negro : #0000;
+  --fuente: font-family: 'Baloo 2', cursive;
+
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; /**para trabajar con rem**/
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+/**globales**/
+
+
+/** header **/
+
+
+
+

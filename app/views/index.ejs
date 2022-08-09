@@ -1,11 +1,25 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+  <%- include('./partials/head.ejs') %>
+<body>
+  <header>
+    <div class="header">
+      <h1>SOFT & BOLD</h1> 
+      <div class="iconos">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <a href="">Usuario</a>
+        <i class="fa-solid fa-user"></i>
+        <a href="">Buscar</a>
+      </div>
+    </div class="secciones">
+      <li><a href="#">Maquillaje</a></li>
+      <li><a href="#">Skin care</a></li>
+      <li><a href="#">accesorios</a></li>
+      <i class="fa-solid fa-cart-shopping"></i>
+    <div>
+
+    </div>
+  </header>
+</body>
+
 </html>
