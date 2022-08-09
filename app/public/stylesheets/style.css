@@ -11,7 +11,7 @@ a {
   --primario: #ccaaa9;
   --secundario: #e4c1c0;
   --blanco : #ffffff;
-  --negro : #0000;
+  --negro : rgb(0, 0, 0);
   --fuente: font-family: 'Baloo 2', cursive;
 
 }
@@ -27,7 +27,49 @@ html {
 
 
 /** header **/
+header {
+  background-color: var(--primario);
+}
 
+header a {
+  text-decoration: none;
+  color: var(--negro);
+}
+
+header li {
+  text-decoration: none;
+  list-style: none;
+}
+
+.header .iconos {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.header .iconos .titulo {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.header .iconos .iconoss {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+
+header .secciones {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
+}
 
 
 
