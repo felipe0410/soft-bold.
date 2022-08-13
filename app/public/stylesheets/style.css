@@ -1,6 +1,6 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+
 }
 
 a {
@@ -27,8 +27,13 @@ html {
 
 
 /** header **/
+body .header{
+  background-color: var(--primario);
+}
 header {
   background-color: var(--primario);
+  width: 100%;
+  font-size: 2rem;
 }
 
 header a {
@@ -40,13 +45,26 @@ header li {
   text-decoration: none;
   list-style: none;
 }
+header .iconos .titulo h1 {
+  align-items: center;
+}
+
+header .iconos .titulo img {
+  width: 10rem;
+}
 
 .header .iconos {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   align-items: center;
+  padding: 3rem;
 }
+
+.header .iconos a {
+  padding: 1rem;
+}
+
 
 .header .iconos .titulo {
   display: flex;
@@ -69,6 +87,7 @@ header .secciones {
   justify-content: space-around;
   flex-wrap: wrap;
   align-items: center;
+  padding: 2rem;
 }
 
 
