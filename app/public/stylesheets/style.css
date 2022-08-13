@@ -180,5 +180,34 @@ header .secciones {
   } 
 }
 
+/** PRODUCTOS EN VENTA**/
 
+.productos-venta{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:space-around;
+  padding: 1rem;
+}
 
+.productos-venta .produc{
+  align-items: center;
+  padding: 10rem;
+}
+
+.productos-venta .produc a {
+  text-decoration: none;
+  align-items: center;
+  color: var(--negro);
+}
+
+.productos-venta .produc img{
+  height: 250px;
+  width: 250px;
+  object-fit:contain;
+  align-items: center 
+  
+}
+.productos-venta .produc .productos-venta-informacion{
+  background-color: var(--blanco);
+  text-align: center;
+}
