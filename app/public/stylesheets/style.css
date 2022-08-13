@@ -10,6 +10,7 @@ a {
 :root {
   --primario: #ccaaa9;
   --secundario: #e4c1c0;
+  --footer: #552247;
   --blanco : #ffffff;
   --negro : rgb(0, 0, 0);
   --fuente: font-family: 'Baloo 2', cursive;
@@ -88,6 +89,95 @@ header .secciones {
   flex-wrap: wrap;
   align-items: center;
   padding: 2rem;
+}
+
+/**footer__________________________________________**/
+.pie-pagina{
+  width: 100%;
+  background-color: var(--primario);
+}
+.box{
+  justify-self: center;
+}
+.footer-img{
+  width: 12rem;
+  justify-items:center;
+}
+.pie-pagina .grupo-1{
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 50px;
+  padding: 45px 0px;
+
+}
+
+.pie-pagina .grupo-1 figure{
+  margin: 1em;
+}
+
+.pie-pagina .grupo-1 .box .figure{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+}
+
+.pie-pagina .grupo-1 .box .figure{
+ width: 250px; 
+}
+
+.pie-pagina .grupo-1 .box h2{
+  color: var(--negro);
+  margin-bottom: 25px;
+  font-size: 20px;
+}
+
+.pie-pagina .grupo-1 .box p{
+  color: var(--negro);
+  margin-bottom: 10px;
+}
+
+.pie-pagina .grupo-1 .red-social a {
+  display: inline-block;
+  text-decoration: none;
+  width: 45px;
+  height: 45px;
+  line-height: 45px;
+  color: var(--negro);
+  margin: 0 10px 10px 0;
+  background-color: var(--secundario);
+  text-align: center;
+  transition: all 300ms ease;
+}
+
+.pie-pagina .grupo-1 .red-social a:hover {
+  color: blanchedalmond;
+}
+
+.pie-pagina .grupo-2 {
+  background-color:var(--secundario);
+  padding: 15px 10px;
+  text-align: center;
+  color: var(--negro);
+  font-size: 15px;
+}
+.card-img{
+  margin: 0 5px 5px 0;
+  width: auto;
+}
+
+@media screen and (max-width:769px){ 
+  .pie-pagina .grupo-1{
+      width: 85%;
+      grid-template-columns: repeat(1, 1fr);
+      grid-gap: 30px;
+      padding: 35px 0px;
+  
+  } 
 }
 
 
