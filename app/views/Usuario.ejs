@@ -1,17 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <%- include('./partials/head.ejs') %>
 </head>
-<%- include('./partials/head.ejs') %>
 <body>
-    
 <%- include('./partials/header.ejs') %>
-<h1>usurio_ingresar</h1>
+<h3>SOFT & BOLD</h3>
+<h1>INICIAR SESION</h1>
+
+<form action="#" method="get">
+    <form action="/my-handling-form-page" method="post">
+        <ul>
+            <li>
+                <label for="name">USUARIO       :</label>
+                <input type="text" id="user" name="user">
+            </li>
+            <li>
+                <label for="password">CONTRASEÑA        :</label>
+                <input type="password" id="password" name="password">
+            </li>
+            <li>
+                <a href="#">¿Olvidaste tu contraseña?</a>
+            </li>
+        </ul>
+    </form>
+    <ul class="button_contenedor">
+        <li class="button">
+            <button type="submit">ENVIAR</button>
+        </li>
+
+        <li class="button">
+            <button type="reset">BORRAR</button>
+        </li>
+
+    </ul>
+
+</form>
 <%- include('./partials/footer.ejs') %>
-    
 </body>
 </html>

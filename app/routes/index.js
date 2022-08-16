@@ -17,6 +17,10 @@ router.get('/detalle', function(req, res, next) {
 router.get('/car/inf_contacto', function(req, res, next) {
   res.render('inf_contacto');
 });
+
+router.get('/detalle', function(req, res, next) {
+  res.render('detalle');
+});
 router.get('/car/inf_contacto/medios_pago', function(req, res, next) {
   res.render('medios_pago');
 });

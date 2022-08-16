@@ -10,6 +10,7 @@ a {
 :root {
   --primario: #ccaaa9;
   --secundario: #e4c1c0;
+  --terciario: #eee1e1;
   --footer: #552247;
   --blanco : #ffffff;
   --negro : rgb(0, 0, 0);
@@ -25,8 +26,18 @@ html {
   box-sizing: inherit;
 }
 /**globales**/
-
-
+li {
+  text-decoration: none;
+  list-style: none;
+  text-align: center;
+}
+form {
+  align-items: center;
+  margin: 0 auto;
+}
+h1{
+  text-align: center;
+}
 /** header **/
 body .header{
   background-color: var(--primario);
@@ -210,4 +221,39 @@ header .secciones {
 .productos-venta .produc .productos-venta-informacion{
   background-color: var(--blanco);
   text-align: center;
+}
+/** /USERS **/
+h3{
+  text-align: center;
+  color: gray;
+}
+
+ul li {
+  text-align: center;
+  padding: 1.5rem;
+}
+form li{
+  text-align: center;
+}
+
+form ul li label{
+  text-align: start;
+  display: flex;
+  justify-content: center;
+  font-size: medium;
+  padding: 1rem;
+}
+
+form ul li input{
+  width: 30%;
+}
+.button_contenedor {
+  display:flex ;
+  justify-content: center;
+}
+.button button{
+  width: 15rem;
+  background-color:#eee1e1;
+  height: 3rem;
+  border-color: var(--primario);
 }
