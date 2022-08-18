@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,11 +8,94 @@
     <title>Document</title>
 </head>
 <%- include('./partials/head.ejs') %>
-<body>
+
+    <body>
+
+        <%- include('./partials/header.ejs') %>
+            <h1>TU CARRITO</h1>
+            <div class="compra">
+                <div class="compra-box">
+                    <div class="compra-img">
+                        <img class="img-detalle" src="/images/1.PNG" alt="1">
+                    </div>
+                
+                    <div class="compra-detalle">
+                        <h3>PALETA</h3>
+                        <P><b>$ 16.000 COP</b></P>
+                        <div class="quantity">
+                            <input type="number" min="1" max="9" step="1" value="1">
+                        </div>
     
-<%- include('./partials/header.ejs') %>
-<h1>carrito</h1>
-<%- include('./partials/footer.ejs') %>
+                    </div>
+                    
+                    <div class="compra-descripcion">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero a enim nesciunt facere ipsam ducimus provident cum
+                            fugit adipisci, repudiandae eaque, voluptate numquam velit aperiam doloribus quisquam! Quod, tenetur at.5</p>
+                    </div>
+                </div>
+
+                <div class="compra-box">
+                    <div class="compra-img">
+                        <img class="img-detalle" src="/images/2.PNG" alt="1">
+                    </div>
+                
+                    <div class="compra-detalle">
+                        <h3>PALETA</h3>
+                        <P><b>$ 16.000 COP</b></P>
+                        <div class="quantity">
+                            <input type="number" min="1" max="9" step="1" value="1">
+                        </div>
     
-</body>
+                    </div>
+                    
+                    <div class="compra-descripcion">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero a enim nesciunt facere ipsam ducimus provident cum
+                            fugit adipisci, repudiandae eaque, voluptate numquam velit aperiam doloribus quisquam! Quod, tenetur at.5</p>
+                    </div>
+                </div>
+
+                <div class="compra-box">
+                    <div class="compra-img">
+                        <img class="img-detalle" src="/images/3.PNG" alt="1">
+                    </div>
+                
+                    <div class="compra-detalle">
+                        <h3>PALETA</h3>
+                        <P><b>$ 16.000 COP</b></P>
+                        <div class="quantity">
+                            <input type="number" min="1" max="9" step="1" value="1">
+                        </div>
+    
+                    </div>
+                    
+                    <div class="compra-descripcion">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero a enim nesciunt facere ipsam ducimus provident cum
+                            fugit adipisci, repudiandae eaque, voluptate numquam velit aperiam doloribus quisquam! Quod, tenetur at.5</p>
+                    </div>
+                </div>
+
+
+                
+            </div>
+
+
+            <div class="compra-nota">
+                <h2>Deja una nota con tu pedido</h2>
+                <textarea name="nota" id="nota" cols="30" rows="10"></textarea>
+            </div>
+            <div class="compra-total">
+                <h2>TOTAL</h2>
+                <h1>$ 50.000 COP</h1>
+                <h3>Los gastos de envio seran calculados al finalizar la compra</h3>
+            </div>
+
+            <div class="button_contenedor">
+                <button class="button" type="submit">Finalizar compra</button>
+                <button class="button" type="submit">Seguir comprando</button>
+            </div>
+
+            <%- include('./partials/footer.ejs') %>
+
+    </body>
+
 </html>

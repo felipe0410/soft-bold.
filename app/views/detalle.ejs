@@ -11,46 +11,64 @@
     <%- include('./partials/header.ejs') %>
         <h2>DETALLE</h2>
         <h3>SOFT & BOLD</h3>
-        <div class="box1">
-            <div class="box1.1">
-                <h2>Ruby Rose</h2>
-                <h2>$ 16.000 COP</h2>
-                <h2>CANTIDAD</h2>
-                <input class="number" id="number" type="number">
+        <div class="boxx">
+            <div class="box1">
+                <div class="box1_1">
+                    <h1>PALETA</h1>
+                    <h2 class="cantidad">Ruby Rose</h2>
+                    <h2>$ 16.000 COP</h2>
+                    <h2 class="cantidad">CANTIDAD</h2>
+                    <input class="number" id="number" type="number">
+                    <ul class="button_contenedor">
+                        
+                        <li class="button">
+                            <button class="comprar" type="submit">AGREGAR AL CARRITO</button>
+                        </li>
+                
+                    </ul>
+                </div>
+                <div class="box1_2">
+                    <img src="/images/1.PNG" alt="PRODUCTO">
+                </div>
             </div>
-            <div class="box2.2">
-                <img src="/images/1.PNG" alt="PRODUCTO">
+            <div class="box_2">
+                <h2>DESCRIPCION</h2>
+                <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non hic voluptas soluta vitae possimus dicta,
+                    reprehenderit laboriosam, harum excepturi odio laborum </P>
+                <h2>Componentes</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non hic voluptas soluta vitae possimus dicta,
+                    reprehenderit laboriosam, harum excepturi odio laborum </p>
             </div>
-        </div>
-        <div class="box2">
-            <h2>DESCRIPCION</h2>
-            <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non hic voluptas soluta vitae possimus dicta,
-                reprehenderit laboriosam, harum excepturi odio laborum </P>
-            <h2>Componentes</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non hic voluptas soluta vitae possimus dicta,
-                reprehenderit laboriosam, harum excepturi odio laborum </p>
+            
         </div>
 
-        <div class="box3">
-            <div class="box3.1">
-                <h2>TAMBIEN TE PUEDE GUSTAR</h2>
+        <h2>TAMBIEN TE PUEDE GUSTAR</h2>
+       <div class="productos-venta">
+            <div class="produc">
+              <a href="/detalle">
+                <img class="img-detalle" src="/images/1.PNG" alt="1">
+                <div class="productos-venta-informacion">
+                  <h3>PALETA</h3>
+                  <P>Ruby Rose</P>
+                  <P><b>$ 16.000 COP</b></P>
+                </div>
+              </a>
             </div>
-            <div class="box3.2">
-                <div class="box3.2_produc1">
-                    <a href="/detalle">
-                      <img src="/images/1.PNG" alt="1">
-                      <div class="productos-venta-informacion">
-                        <h3>PALETA</h3>
-                        <P>Ruby Rose</P>
-                        <P><b>$ 16.000 COP</b></P>
-                      </div>
-                    </a>
-                  </div>
-            </div>
-
-            <div class="box3.2_produc2">
+        
+            <div class="produc">
                 <a href="/detalle">
-                  <img src="/images/1.PNG" alt="1">
+                  <img class="img-detalle" src="/images/2.PNG" alt="1">
+                  <div class="productos-venta-informacion">
+                    <h3>PALETA</h3>
+                    <P>Ruby Rose</P>
+                    <P><b>$ 16.000 COP</b></P>
+                  </div>
+                </a>
+            </div>
+        
+            <div class="produc">
+                <a href="/detalle">
+                  <img class="img-detalle" src="/images/3.PNG" alt="1">
                   <div class="productos-venta-informacion">
                     <h3>PALETA</h3>
                     <P>Ruby Rose</P>
@@ -58,17 +76,7 @@
                   </div>
                 </a>
               </div>
-           </div>
 
-           <div class="box3.2_produc3">
-            <a href="/detalle">
-              <img src="/images/1.PNG" alt="1">
-              <div class="productos-venta-informacion">
-                <h3>PALETA</h3>
-                <P>Ruby Rose</P>
-                <P><b>$ 16.000 COP</b></P>
-              </div>
-            </a>
           </div>
     </div>
      </div>

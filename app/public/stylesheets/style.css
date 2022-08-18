@@ -11,6 +11,7 @@ a {
   --primario: #ccaaa9;
   --secundario: #e4c1c0;
   --terciario: #eee1e1;
+  --cuarto: #cf0b53ed;
   --footer: #552247;
   --blanco : #ffffff;
   --negro : rgb(0, 0, 0);
@@ -35,9 +36,10 @@ form {
   align-items: center;
   margin: 0 auto;
 }
-h1{
+h1,h2,h3{
   text-align: center;
 }
+
 /** header **/
 body .header{
   background-color: var(--primario);
@@ -202,7 +204,7 @@ header .secciones {
 
 .productos-venta .produc{
   align-items: center;
-  padding: 10rem;
+  padding: 5rem;
 }
 
 .productos-venta .produc a {
@@ -250,6 +252,7 @@ form ul li input{
 .button_contenedor {
   display:flex ;
   justify-content: center;
+  flex-wrap: wrap;
 }
 .button button{
   width: 15rem;
@@ -257,3 +260,110 @@ form ul li input{
   height: 3rem;
   border-color: var(--primario);
 }
+/** /detalle **/
+.boxx{
+display: grid;
+grid-template-columns: 70% auto;
+}
+
+.boxx .box1{
+  display:flex ;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.productos-venta .produc .img-detalle{
+  height: 150px;
+  width: 150px;
+  object-fit:contain;
+  align-items: center;
+}
+
+.box1{
+  justify-content: center;
+}
+
+.box1_1 {
+  display: grid;
+  align-items: center;
+  align-content: baseline;
+
+}
+
+.box_2 {
+  padding: 3rem;
+}
+
+.box1 .box1_1 .button_contenedor{
+  display: flex;
+  align-items: center;
+  margin-right: 3rem;
+}
+
+.box1_1 .button .comprar{
+  width: 20rem;
+  height: 4rem;
+}
+
+.box1_1 .number{
+  width: 5rem;
+  margin: 0 auto;
+}
+
+.boxx .box1_2 img{
+  height: 350px;
+  width: 350px;
+  object-fit:contain;
+  align-items: center 
+}
+
+.box1 h1 {
+  color: var(--cuarto);
+}
+
+.box1 .cantidad {
+  color:gray;
+}
+
+/** CARRITO **/
+.compra .compra-box{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 3rem;
+}
+
+.compra .compra-img .img-detalle{
+  height: 200px;
+  width: 200px;
+  object-fit:contain;
+  align-items: center;
+}
+
+.compra .compra-descripcion{
+  display: flex;
+  width: 35rem;
+  padding: 2rem;
+}
+
+.compra-nota{
+  margin: 0 auto;
+}
+
+.compra-nota textarea{
+  width: 60%;
+  height: 15rem;
+  display: flex;
+  margin: 0 auto;
+}
+
+
+.button_contenedor .button{
+  width: 20rem;
+  background-color:#eee1e1;
+  height: 3.5rem;
+  border-color: var(--primario);
+  margin: 5rem
+}
+
+
