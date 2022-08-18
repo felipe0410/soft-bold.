@@ -50,6 +50,7 @@ header {
   font-size: 2rem;
 }
 
+
 header a {
   text-decoration: none;
   color: var(--negro);
@@ -58,6 +59,13 @@ header a {
 header li {
   text-decoration: none;
   list-style: none;
+}
+header .iconos .titulo .header-logo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+
 }
 header .iconos .titulo h1 {
   align-items: center;
@@ -104,6 +112,15 @@ header .secciones {
   padding: 2rem;
 }
 
+@media screen and (max-width:769px){ 
+  header .secciones {
+    display: none;
+  }
+  .header .iconos .iconoss {
+    margin: 0 auto;
+  }
+  
+}
 /**footer__________________________________________**/
 .pie-pagina{
   width: 100%;
@@ -260,8 +277,15 @@ form ul li input{
   height: 3rem;
   border-color: var(--primario);
 }
+
+@media screen and (max-width:769px){ 
+  form ul li input{
+    width: 70%;
+  }
+}
+
 /** /detalle **/
-.boxx{
+.boxx .detalle-boxx{
 display: grid;
 grid-template-columns: 70% auto;
 }
@@ -311,10 +335,12 @@ grid-template-columns: 70% auto;
 }
 
 .boxx .box1_2 img{
+  display: flex;
   height: 350px;
   width: 350px;
   object-fit:contain;
-  align-items: center 
+  align-items: center;
+  margin: 0 auto; 
 }
 
 .box1 h1 {
@@ -325,6 +351,20 @@ grid-template-columns: 70% auto;
   color:gray;
 }
 
+@media screen and (max-width:1034px){ 
+.boxx .detalle-boxx{ 
+    display:grid ;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .boxx .box1{
+    flex-direction: column-reverse;
+  }
+  .productos-venta .produc .img-detalle{
+    height: 100px;
+    width: 100px;
+  }
+
+}
 /** CARRITO **/
 .compra .compra-box{
   display: flex;
@@ -354,16 +394,23 @@ grid-template-columns: 70% auto;
   width: 60%;
   height: 15rem;
   display: flex;
-  margin: 0 auto;
+  margin: 3rem auto;
 }
 
 
 .button_contenedor .button{
   width: 20rem;
-  background-color:#eee1e1;
   height: 3.5rem;
   border-color: var(--primario);
   margin: 5rem
 }
 
+@media screen and (max-width:769px){ 
+  .compra .compra-descripcion{
+    display: none;
+  }
+  .button_contenedor .button{
+    margin: 2rem
+  }
+}
 
