@@ -404,6 +404,11 @@ grid-template-columns: 70% auto;
   border-color: var(--primario);
   margin: 5rem
 }
+.button_contenedor .button a {
+  text-decoration: none;
+  color: black;
+}
+
 
 @media screen and (max-width:769px){ 
   .compra .compra-descripcion{
@@ -413,4 +418,37 @@ grid-template-columns: 70% auto;
     margin: 2rem
   }
 }
+
+/** CONTACTO DE VENTA **/
+form .inf_contacto-box{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  
+}
+
+.inf_contacto-box li{
+  width: 50%;
+  height: 3rem;
+  padding: 2rem;
+}
+.inf_contacto-box .inf_contacto-block{
+  width: 95%;
+  height: 3rem;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.inf_contacto-box .inf_contacto-block .inf_contacto-block-1{
+  width: 100%;
+  margin: 0 auto;
+}
+.inf_contacto-box li input{
+  width: 90%;
+  height: 3rem;
+}
+
+
+
+
 

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<%- include('../partials/head.ejs') %>
+<body>
+<%- include('../partials/header.ejs') %>
+<h1>REGISTRO</h1>
+<form action="">
+    <div class="inf_contacto-box" >
+        <li class="inf_contacto-block">
+            <input class=".inf_contacto-block-1" type="email" placeholder="Correo electronico">
+
+        </li>
+    </div>
+
+    <div class="inf_contacto-box" >
+        <li class="inf_contacto-block">
+            <input class=".inf_contacto-block-1" type="email" placeholder="Nombres">
+        </li>
+    </div>
+
+    <div class="inf_contacto-box" >
+        <li class="inf_contacto-block">
+            <input class=".inf_contacto-block-1" type="text" placeholder="Apellidos">
+        </li>
+    </div>
+
+    <div class="inf_contacto-box" >
+        <li class="inf_contacto-block">
+            <input class=".inf_contacto-block-1" type="text" placeholder="contraseña">
+        </li>
+    </div>
+    <div class="button_contenedor">
+        <button class="button" type="submit"> <a href="/users"> Registrarse</a></button> 
+        <button class="button" type="reset"><a href="/users"> Cancelar</a></button>
+    </div>
+
+</form>
+<%- include('../partials/footer.ejs') %>
+    
+</body>
+</html>

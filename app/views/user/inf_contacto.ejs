@@ -8,9 +8,69 @@
 </head>
 <%- include('../partials/head.ejs') %>
 <body>
-    
 <%- include('../partials/header.ejs') %>
-<h1>venta producto</h1>
+<h1>INFORMACION DE CONTACTO</h1>
+<form action="">
+    <div class="inf_contacto-box" >
+        <li class="inf_contacto-block">
+            <input class=".inf_contacto-block-1" type="email" placeholder="Correo electronico">
+
+        </li>
+    </div>
+
+    <div>
+        <h2>Direccion de envio</h2>
+    </div>
+    <div class="inf_contacto-box">
+        <li>
+            <input type="text" placeholder="Nombre">
+        </li>
+        <li>
+            <input type="text" placeholder="Apellido">
+        </li>
+        <li>
+            <input type="text" placeholder="Documento">
+        </li>
+        <li>
+            <input type="number" placeholder="Num documento">
+        </li>  
+    </div>
+
+    <div class="inf_contacto-box">
+        <li class="inf_contacto-block">
+            <input class="inf_contacto-block-1"  type="text" placeholder="Direccion,num,casa o apartamento">
+        </li>
+    </div>
+    <div class="inf_contacto-box">
+        <li class="inf_contacto-block">
+            <input  class="inf_contacto-block-1" type="text" placeholder="¿Algun lugar de referencia?">
+        </li>
+        <
+    </div>
+    <div class="inf_contacto-box">
+        <li>
+            <input type="text" placeholder="Departamento">
+        </li>
+        <li>
+            <input type="text" placeholder="Ciudad">
+        </li>
+        
+    </div>
+    <div class="inf_contacto-box">
+        <li class="inf_contacto-block">
+            <input class="inf_contacto-block-1" type="number" placeholder="Num.WhatsApp para notifiacion">
+        </li>
+    </div>
+    <div class="compra-total">
+        <h2>TOTAL</h2>
+        <h1>$ 50.000 COP</h1>
+        <h3>Los gastos de envio seran calculados al finalizar la compra</h3>
+    </div>
+    <div class="button_contenedor">
+        <button class="button" type="submit"> <a href="/car"> VOLVER AL CARRITO </a></button> 
+        <button class="button" type="submit">CONTINUAR</button>
+    </div>
+</form>
 <%- include('../partials/footer.ejs') %>
     
 </body>
