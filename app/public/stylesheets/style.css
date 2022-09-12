@@ -448,6 +448,16 @@ form .inf_contacto-box{
   height: 3rem;
 }
 
+form .inf_contacto-box select {
+  width: 90%;
+  height: 3rem;
+}
+
+.inf_contacto-box label{
+  margin: 0 auto;
+}
+
+
 
 
 

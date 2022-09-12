@@ -14,6 +14,10 @@ const indexController ={
     detalle: function(req, res, next) {
         res.render('./product/detalle');
       },
+
+      newProduct: function(req, res, next) {
+        res.render('./product/newProduct');
+      },
     
     inf_contacto:function(req, res, next) {
         res.render('./user/inf_contacto');
@@ -25,6 +29,7 @@ const indexController ={
       medios_pago: function(req, res, next) {
         res.render('./user/medios_pago');
       }
+      
 
 }
 

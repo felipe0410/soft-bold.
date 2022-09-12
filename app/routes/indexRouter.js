@@ -10,6 +10,7 @@ router.get('/detalle', indexController.detalle);
 router.get('/car/inf_contacto',indexController.inf_contacto);
 router.get('/detalle', indexController.detalle);
 router.get('/car/inf_contacto/medios_pago', medios_pago );
+router.get('/newProduct', indexController.newProduct );
 
 
 module.exports = router;

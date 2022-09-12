@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<%- include('../partials/head.ejs') %>
+<body>
+<%- include('../partials/header.ejs') %>
+<h1>NUEVO PRODUCTO</h1>
+<form action="">
+    <div class="inf_contacto-box" >
+        <li class="inf_contacto-block">
+            <input class=".inf_contacto-block-1" type="text" placeholder="Nombre del producto">
+        </li>
+    </div>
+
+    <div class="inf_contacto-box" >
+        <li class="inf_contacto-block">
+            <input class=".inf_contacto-block-1" type="text" placeholder="Marca del producto">
+        </li>
+    </div>
+
+    <div class="inf_contacto-box" >
+        <li class="inf_contacto-block">
+            <input class=".inf_contacto-block-1" type="text" placeholder="Descripcion del producto">
+        </li>
+    </div>
+
+    <div class="inf_contacto-box" >
+        <li class="inf_contacto-block">
+            <input class=".inf_contacto-block-1" type="text" placeholder="Componentes del producto">
+        </li>
+        
+    </div>
+    <div class="inf_contacto-box" >
+        <li class="inf_contacto-block">
+            <input class=".inf_contacto-block-1" type="text" placeholder="Valor del producto">
+        </li>
+        <li class="inf_contacto-block">
+            <input class=".inf_contacto-block-1" type="text" placeholder="Unidades">
+        </li>
+
+    </div>
+
+    <div class="inf_contacto-box">
+        <li class="inf_contacto-block">
+            <select  class="" name="category_id" id="">
+                <option value="1">Maquillaje</option>
+                <option value="2">Skin care</option>
+                <option value="3">Accesorios</option>
+            </select>
+        </li>     
+    </div>
+
+    <div class="inf_contacto-box" >
+        <label for=""><h2>Imagenes del producto</h2></label>
+        <li class="inf_contacto-block">
+            <input class=".inf_contacto-block-1" type="file" placeholder="Valor del producto">
+        </li>
+    </div>
+    
+    <div class="button_contenedor">
+        <button class="button" type="submit"> <a href="/"> Agregar</a></button> 
+        <button class="button" type="reset"><a href="/"> Cancelar</a></button>
+    </div>
+
+</form>
+
+
+
+<%- include('../partials/footer.ejs') %>
+    
+</body>
+</html>
