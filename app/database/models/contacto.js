@@ -1,13 +1,13 @@
 
 module.exports = (sequelize, dataTypes) => {
-    let alias = "Contacto_compra";
+    let alias = "contacto_compra";
     let cols = {
         ID_compra_inf: {
             type: dataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true
         },
-        E_mail: {
+        Email: {
             type: dataTypes.STRING
         },
         Nombre: {
@@ -34,24 +34,23 @@ module.exports = (sequelize, dataTypes) => {
         Ciudad:{
             type: dataTypes.STRING
         },
-        Ndocumento:{
+        Whatsapp:{
             type: dataTypes.INTEGER
         },
-
         
     }
     let config = {
-        tableName: "Contacto_compra",
+        tableName: "contacto_compra",
         timestamps: false
     }
     
-    const Category = sequelize.define(alias, cols, config);
+    const contacto_compra = sequelize.define(alias, cols, config);
 
-    Category.associate = function(models){
-        Category.hasOne(models.carrito, {
-            foreignKey: 'Carrito_productos_ID_producto'
+    contacto_compra.associate = function(models){
+        contacto_compra.hasOne(models.carrito, {
+            foreignKey: 'ID_compra_inf'
           });
     }
 
-    return Contacto_compra;
+    return contacto_compra;
 }

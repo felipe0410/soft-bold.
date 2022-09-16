@@ -1,6 +1,6 @@
 
 module.exports = (sequelize, dataTypes) => {
-    let alias = "Carrito";
+    let alias = "carrito";
     let cols = {
         ID_compra: {
             type: dataTypes.INTEGER,
@@ -13,20 +13,31 @@ module.exports = (sequelize, dataTypes) => {
         Precio: {
             type: dataTypes.INTEGER
         },
+        ID_compra_inf: {
+            type: dataTypes.INTEGER
+        }
         
     }
     let config = {
-        tableName: "Carrito",
+        tableName: "carrito",
         timestamps: false
     }
     
-    const Category = sequelize.define(alias, cols, config);
+    const carrito = sequelize.define(alias, cols, config);
 
-    Category.associate = function(models){
-        Category.hasOne(models.producto, {
-            foreignKey: 'productos_ID_ producto1'
-          });
+    Product.associate = function(models){
+        Product.belongsToMany(models.producto, {
+            as: "compra-productos",
+            through: "productos_carrito",
+            foreignKey: "ID_compra",
+            otherKey: "ID_producto",
+            timestamps: false
+        }),
+        Product.belongsTo(models.contacto, {
+            as: "compra_inf",
+            foreignKey: 'ID_compra_inf'
+        })
     }
 
-    return Carrito;
+    return carrito;
 }
