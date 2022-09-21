@@ -18,6 +18,7 @@ module.exports = (sequelize, dataTypes) => {
         }
         
     }
+
     let config = {
         tableName: "carrito",
         timestamps: false
@@ -25,15 +26,16 @@ module.exports = (sequelize, dataTypes) => {
     
     const carrito = sequelize.define(alias, cols, config);
 
-    Product.associate = function(models){
-        Product.belongsToMany(models.producto, {
+
+    carrito.associate = function(models){
+        carrito.belongsToMany(models.producto, {
             as: "compra-productos",
             through: "productos_carrito",
             foreignKey: "ID_compra",
             otherKey: "ID_producto",
             timestamps: false
         }),
-        Product.belongsTo(models.contacto, {
+        carrito.belongsTo(models.carrito, {
             as: "compra_inf",
             foreignKey: 'ID_compra_inf'
         })

@@ -7,7 +7,8 @@ module.exports = (sequelize, dataTypes) => {
             primaryKey: true,
             autoIncrement: true
         },
-        NombreProducto: {
+        
+        Nombre_Producto: {
             type: dataTypes.STRING
         },
         Marca: {
@@ -19,13 +20,13 @@ module.exports = (sequelize, dataTypes) => {
         Unidades: {
             type: dataTypes.STRING
         },
-        Descripion: {
+        Descripcion: {
             type: dataTypes.STRING
         },
         Componentes: {
             type: dataTypes.STRING
         },
-        Imagen: {
+        imagen: {
             type: dataTypes.STRING
         }
         
@@ -35,7 +36,7 @@ module.exports = (sequelize, dataTypes) => {
         timestamps: false
     }
     
-    const categoria = sequelize.define(alias, cols, config);
+    const producto = sequelize.define(alias, cols, config);
 
     producto.associate = function(models){
         producto.belongsToMany(models.categoria, {
@@ -53,5 +54,5 @@ module.exports = (sequelize, dataTypes) => {
             timestamps: false
         })
     }
-    return categoria;
+    return producto;
 }

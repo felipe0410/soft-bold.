@@ -10,47 +10,47 @@
 <body>
 <%- include('../partials/header.ejs') %>
 <h1>NUEVO PRODUCTO</h1>
-<form action="">
+<form action="/add" method="post" enctype="multipart/form-data">
     <div class="inf_contacto-box" >
         <li class="inf_contacto-block">
-            <input class=".inf_contacto-block-1" type="text" placeholder="Nombre del producto">
+            <input class=".inf_contacto-block-1" type="text" placeholder="Nombre del producto" name="nombre">
         </li>
     </div>
 
     <div class="inf_contacto-box" >
         <li class="inf_contacto-block">
-            <input class=".inf_contacto-block-1" type="text" placeholder="Marca del producto">
+            <input class=".inf_contacto-block-1" type="text" placeholder="Marca del producto" name="marca">
         </li>
     </div>
 
     <div class="inf_contacto-box" >
         <li class="inf_contacto-block">
-            <input class=".inf_contacto-block-1" type="text" placeholder="Descripcion del producto">
+            <input class=".inf_contacto-block-1" type="text" placeholder="Descripcion del producto" name="descripcion">
         </li>
     </div>
 
     <div class="inf_contacto-box" >
         <li class="inf_contacto-block">
-            <input class=".inf_contacto-block-1" type="textarea" placeholder="Componentes del producto">
+            <input class=".inf_contacto-block-1" type="textarea" placeholder="Componentes del producto" name="componentes">
         </li>
         
     </div>
     <div class="inf_contacto-box" >
         <li class="inf_contacto-block">
-            <input class=".inf_contacto-block-1" type="text" placeholder="Valor del producto">
+            <input class=".inf_contacto-block-1" type="number" placeholder="Valor del producto" name="precio">
         </li>
         <li class="inf_contacto-block">
-            <input class=".inf_contacto-block-1" type="text" placeholder="Unidades">
+            <input class=".inf_contacto-block-1" type="number" placeholder="Unidades" name="unidades">
         </li>
 
     </div>
 
     <div class="inf_contacto-box">
         <li class="inf_contacto-block">
-            <select  class="" name="category_id" id="">
-                <option value="1">Maquillaje</option>
-                <option value="2">Skin care</option>
-                <option value="3">Accesorios</option>
+            <select  class="" name="category" id="">
+                <% for (let  i = 0  ; i<categoria.length ; i++ ) { %>
+                <option value="<%= categoria[i].idcategoria %>"> <%= categoria[i].nombre %> </option>
+                <% } %>
             </select>
         </li>     
     </div>
@@ -58,13 +58,13 @@
     <div class="inf_contacto-box" >
         <label for=""><h2>Imagenes del producto</h2></label>
         <li class="inf_contacto-block">
-            <input class=".inf_contacto-block-1" type="file" placeholder="Valor del producto">
+            <input class=".inf_contacto-block-1" type="file" placeholder="Valor del producto" name="img">
         </li>
     </div>
     
     <div class="button_contenedor">
-        <button class="button" type="submit"> <a href="/"> Agregar</a></button> 
-        <button class="button" type="reset"><a href="/"> Cancelar</a></button>
+        <button class="button" type="submit">Agregar</button> 
+        <button class="button" type="reset">Cancelar</button>
     </div>
 
 </form>

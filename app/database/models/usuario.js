@@ -26,13 +26,8 @@ module.exports = (sequelize, dataTypes) => {
         timestamps: false
     }
     
-    const Category = sequelize.define(alias, cols, config);
+    const Usuario = sequelize.define(alias, cols, config);
 
-    Category.associate = function(models){
-        Category.hasOne(models.carrito, {
-            foreignKey: 'Carrito_productos_ID_ producto'
-          });
-    }
 
     return Usuario;
 }
