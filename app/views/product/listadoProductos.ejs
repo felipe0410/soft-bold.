@@ -3,12 +3,16 @@
   <%- include('../partials/head.ejs') %>
 <body>
   <%- include('../partials/header.ejs') %>
+
+  <h1>EDICION DE PRODUCTO</h1>
+  
   <div class="productos-venta">
     <% for(let i = 0; i<producto.length ; i++) { %>
     <div class="produc">
-      <a href="/detalle/<%=producto[i].ID_producto %>">
+      <a href="/edit/<%=producto[i].ID_producto %>">
         <img src="/images/products/<%= producto[i].imagen %>" alt="<%= producto[i].ID_producto %>">
         <div class="productos-venta-informacion">
+          <h2>EDICION DE PRODUCTO</h2>
           <h3><%= producto[i].Nombre_Producto %></h3>
           <P> <%= producto[i].Marca %></P>
           <P><b>$ <%= producto[i].Precio %> COP</b></P>

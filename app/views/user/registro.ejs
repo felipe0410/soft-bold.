@@ -10,34 +10,33 @@
 <body>
 <%- include('../partials/header.ejs') %>
 <h1>REGISTRO</h1>
-<form action="">
+<form action="/users/register" method="post">
     <div class="inf_contacto-box" >
         <li class="inf_contacto-block">
-            <input class=".inf_contacto-block-1" type="email" placeholder="Correo electronico">
-
+            <input class=".inf_contacto-block-1" type="email" placeholder="Correo electronico" name="correo">
         </li>
     </div>
 
     <div class="inf_contacto-box" >
         <li class="inf_contacto-block">
-            <input class=".inf_contacto-block-1" type="email" placeholder="Nombres">
+            <input class=".inf_contacto-block-1" type="text" placeholder="Nombres" name="nombre">
         </li>
     </div>
 
     <div class="inf_contacto-box" >
         <li class="inf_contacto-block">
-            <input class=".inf_contacto-block-1" type="text" placeholder="Apellidos">
+            <input class=".inf_contacto-block-1" type="text" placeholder="Apellidos" name="apellidos">
         </li>
     </div>
 
     <div class="inf_contacto-box" >
         <li class="inf_contacto-block">
-            <input class=".inf_contacto-block-1" type="text" placeholder="contraseña">
+            <input class=".inf_contacto-block-1" type="password" placeholder="contraseña" name="contraseña">
         </li>
     </div>
     <div class="button_contenedor">
-        <button class="button" type="submit"> <a href="/users"> Registrarse</a></button> 
-        <button class="button" type="reset"><a href="/users"> Cancelar</a></button>
+        <button class="button" type="submit">Registrarse</button> 
+        <button class="button" type="reset">Cancelar</button>
     </div>
 
 </form>

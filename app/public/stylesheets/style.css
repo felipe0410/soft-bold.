@@ -434,7 +434,7 @@ form .inf_contacto-box{
 }
 .inf_contacto-box .inf_contacto-block{
   width: 95%;
-  height: 3rem;
+  height: 7rem;
   margin: 0 auto;
   padding: 2rem;
 }
@@ -452,7 +452,10 @@ form .inf_contacto-box select {
   width: 90%;
   height: 3rem;
 }
-
+.inf_contacto-box li textarea{
+  width: 90%;
+  height: 6rem;
+}
 .inf_contacto-box label{
   margin: 0 auto;
 }

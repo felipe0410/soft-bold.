@@ -9,23 +9,23 @@
 <%- include('../partials/head.ejs') %>
 <body>
 <%- include('../partials/header.ejs') %>
-<h1>NUEVO PRODUCTO</h1>
-<form action="/add" method="post" enctype="multipart/form-data">
+<h1>EDITAR PRODUCTO </h1>
+<form action="/edit/:id" method="post" enctype="multipart/form-data">
     <div class="inf_contacto-box" >
         <li class="inf_contacto-block">
-            <input class=".inf_contacto-block-1" type="text" placeholder="Nombre del producto" name="nombre">
+            <input value="<%= producto.Nombre_Producto%>" class=".inf_contacto-block-1" type="text" placeholder="Nombre del producto" name="nombre">
         </li>
     </div>
 
     <div class="inf_contacto-box" >
         <li class="inf_contacto-block">
-            <input class=".inf_contacto-block-1" type="text" placeholder="Marca del producto" name="marca">
+            <input value="<%= producto.Marca%>" class=".inf_contacto-block-1" type="text" placeholder="Marca del producto" name="marca">
         </li>
     </div>
 
     <div class="inf_contacto-box" >
         <li class="inf_contacto-block">
-            <textarea name="descripcion" rows="7" cols="auto">Componentes del producto</textarea>
+            <textarea  name="descripcion" rows="7" cols="auto"><%= producto.Descripcion%></textarea>
            <!-- <input class=".inf_contacto-block-1" type="text" placeholder="Descripcion del producto" name="descripcion">-->    
         </li>
     </div>
@@ -33,16 +33,16 @@
     <div class="inf_contacto-box" >
         <li class="inf_contacto-block">
             <!--<input class=".inf_contacto-block-1" t placeholder="Componentes del producto" name="componentes"> -->
-            <textarea name="componentes" rows="7" cols="auto">Componentes del producto</textarea>
+            <textarea  rows="7" cols="auto"><%= producto.Componentes%>" name="componentes%> </textarea>
         </li>
         
     </div>
     <div class="inf_contacto-box" >
         <li class="inf_contacto-block">
-            <input class=".inf_contacto-block-1" type="number" placeholder="Valor del producto" name="precio">
+            <input value="<%= producto.Precio%>" class=".inf_contacto-block-1" type="number" placeholder="Valor del producto" name="precio">
         </li>
         <li class="inf_contacto-block">
-            <input class=".inf_contacto-block-1" type="number" placeholder="Unidades" name="unidades">
+            <input   value="<%= producto.Unidades%>" class=".inf_contacto-block-1" type="number" placeholder="Unidades" name="unidades">
         </li>
 
     </div>
@@ -60,13 +60,13 @@
     <div class="inf_contacto-box" >
         <label for=""><h2>Imagenes del producto</h2></label>
         <li class="inf_contacto-block">
-            <input class=".inf_contacto-block-1" type="file" placeholder="Valor del producto" name="img">
+            <input class=".inf_contacto-block-1" type="file" name="img">
         </li>
     </div>
     
     <div class="button_contenedor">
-        <button class="button" type="submit">Agregar</button> 
-        <button class="button" type="reset">Cancelar</button>
+        <button class="button" type="submit">EDITAR</button> 
+        <button class="button" type="reset">BORRAR</button>
     </div>
 
 </form>
