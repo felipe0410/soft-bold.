@@ -10,7 +10,7 @@
 <body>
 <%- include('../partials/header.ejs') %>
 <h1>EDITAR PRODUCTO </h1>
-<form action="/edit/:id" method="post" enctype="multipart/form-data">
+<form action="/edit/<%= producto.ID_producto%>" method="post" enctype="multipart/form-data">
     <div class="inf_contacto-box" >
         <li class="inf_contacto-block">
             <input value="<%= producto.Nombre_Producto%>" class=".inf_contacto-block-1" type="text" placeholder="Nombre del producto" name="nombre">
@@ -33,7 +33,7 @@
     <div class="inf_contacto-box" >
         <li class="inf_contacto-block">
             <!--<input class=".inf_contacto-block-1" t placeholder="Componentes del producto" name="componentes"> -->
-            <textarea  rows="7" cols="auto"><%= producto.Componentes%>" name="componentes%> </textarea>
+            <textarea name="componentes"  rows="7" cols="auto"><%= producto.Componentes%></textarea>
         </li>
         
     </div>
@@ -66,13 +66,13 @@
     
     <div class="button_contenedor">
         <button class="button" type="submit">EDITAR</button> 
-        <button class="button" type="reset">BORRAR</button>
     </div>
-
 </form>
-
-
-
+<form action="/borrar/<%= producto.ID_producto%>" method="post" >
+    <div class="button_contenedor">
+        <button class="button" type="submit">BORRAR PRODUCTO</button> 
+    </div>
+</form>
 <%- include('../partials/footer.ejs') %>
     
 </body>

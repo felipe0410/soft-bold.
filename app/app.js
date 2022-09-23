@@ -9,10 +9,12 @@ var indexRouter = require('./routes/indexRouter');
 var usersRouter = require('./routes/usersRouter');
 
 var app = express();
+app.use(express.urlencoded({extended: false}));
 
 // view engine setup
 app.set('views', path.join(__dirname, './views'));
 app.set('view engine', 'ejs');
+
 
 app.use(logger('dev'));
 app.use(express.json());

@@ -402,7 +402,7 @@ grid-template-columns: 70% auto;
   width: 20rem;
   height: 3.5rem;
   border-color: var(--primario);
-  margin: 5rem
+  margin: 2rem
 }
 .button_contenedor .button a {
   text-decoration: none;
