@@ -7,14 +7,7 @@ const {body} = require("express-validator");
 
 // validaciones _______________________________
     //validacion_formulario_de_productos
-    const validacionProducto = [
-        body("nombre").notEmpty().withMessage("Debes escribir un NOMBRE DE USUARIO"),
-        body("marca").notEmpty().withMessage("Debes escribir una MARCA "),
-        body("precio").notEmpty().withMessage("Debes escribir un PRECIO "),
-        body("unidades").notEmpty().withMessage("Debes escribir las UNDIDADES DISPONIBLES"),
-        body("descripcion").notEmpty().withMessage("Debes escribir una DESRIPCION"),
-        body("componentes").notEmpty().withMessage("Debes escribir los COMPONENTES")
-    ]
+    var validacionProducto = require("../middlewares/validacionProducto")
 /* GET home page. */
     router.get('/', indexController.index);
 
@@ -28,7 +21,7 @@ const {body} = require("express-validator");
 //productos_______________________________________________________________________
     //crear productos_____________________________________________________________
        router.get('/newProduct', indexController.newProduct );
-       router.post('/add',uploadFile.single("img"),validacionProducto,indexController.newProductFunction);
+       router.post('/newProduct',uploadFile.single("img"),validacionProducto,indexController.newProductFunction);
 //listado de edicion______________________________________________________________
     router.get('/listado', indexController.listado );
 //editar producto_________________________________________________________________

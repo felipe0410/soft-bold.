@@ -9,32 +9,32 @@
 <h3>SOFT & BOLD</h3>
 <h1>INICIAR SESION</h1>
 
-<form action="#" method="get">
+<form action="/users" method="post">
     <form action="/my-handling-form-page" method="post">
         <ul>
             <li>
                 <label for="name">USUARIO       :</label>
-                <input type="text" id="user" name="user">
+                <input type="email" id="user" name="Email">
             </li>
             <li>
                 <label for="password">CONTRASEÑA        :</label>
-                <input type="password" id="password" name="password">
+                <input type="password" id="password" name="Contraseña">
             </li>
             <li>
                 <a href="/users/register">Registrarse</a>
             </li>
         </ul>
+        <ul class="button_contenedor">
+            <li class="button">
+                <button type="submit">ENVIAR</button>
+            </li>
+    
+            <li class="button">
+                <button type="reset">BORRAR</button>
+            </li>
+    
+        </ul>
     </form>
-    <ul class="button_contenedor">
-        <li class="button">
-            <button type="submit">ENVIAR</button>
-        </li>
-
-        <li class="button">
-            <button type="reset">BORRAR</button>
-        </li>
-
-    </ul>
 
 </form>
 <%- include('../partials/footer.ejs') %>

@@ -7,8 +7,15 @@ var db = require("./database/models/usuario")
 
 var indexRouter = require('./routes/indexRouter');
 var usersRouter = require('./routes/usersRouter');
-
+const session = require('express-session');
 var app = express();
+
+app.use(session({
+  secret: "es secreto",
+  resave: false,
+  saveUninitialized: false,
+}));
+
 app.use(express.urlencoded({extended: false}));
 
 // view engine setup

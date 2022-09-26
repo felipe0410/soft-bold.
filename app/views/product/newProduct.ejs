@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,73 +8,115 @@
     <title>Document</title>
 </head>
 <%- include('../partials/head.ejs') %>
-<body>
-<%- include('../partials/header.ejs') %>
-<h1>NUEVO PRODUCTO</h1>
-<form action="/add" method="post" enctype="multipart/form-data">
-    <div class="inf_contacto-box" >
-        <li class="inf_contacto-block">
-            <input class=".inf_contacto-block-1" type="text" placeholder="Nombre del producto" name="nombre">
-        </li>
-    </div>
 
-    <div class="inf_contacto-box" >
-        <li class="inf_contacto-block">
-            <input class=".inf_contacto-block-1" type="text" placeholder="Marca del producto" name="marca">
-        </li>
-    </div>
+    <body>
+        <%- include('../partials/header.ejs') %>
+            <h1>NUEVO PRODUCTO</h1>
+            <form action="/newProduct" method="post" enctype="multipart/form-data">
+                <div class="inf_contacto-box">
+                    <li class="inf_contacto-block">
+                        <input class=".inf_contacto-block-1" type="text" placeholder="Nombre del producto"
+                         value="<%= locals.oldData ? oldData.nombre : null %>" name="nombre">
+                    </li>
+							<% if (locals.errors && errors.name) { %>
+								<div class="text-danger">
+									<h4><%= errors.name.msg %></h4>
+								</div>
+							<% } %>
+                </div>
 
-    <div class="inf_contacto-box" >
-        <li class="inf_contacto-block">
-            <textarea name="descripcion" rows="7" cols="auto">Componentes del producto</textarea>
-           <!-- <input class=".inf_contacto-block-1" type="text" placeholder="Descripcion del producto" name="descripcion">-->    
-        </li>
-    </div>
+                <div class="inf_contacto-box">
+                    <li class="inf_contacto-block">
+                        <input class=".inf_contacto-block-1" type="text" placeholder="Marca del producto" name="marca"
+                        value="<%= locals.oldData ? oldData.marca : null %>" >
+                    </li>
+                    <% if (locals.errors && errors.marca) { %>
+                        <div class="text-danger">
+                            <%= errors.marca.msg %> 
+                        </div>
+                    <% } %>
+                </div>
 
-    <div class="inf_contacto-box" >
-        <li class="inf_contacto-block">
-            <!--<input class=".inf_contacto-block-1" t placeholder="Componentes del producto" name="componentes"> -->
-            <textarea name="componentes" rows="7" cols="auto">Componentes del producto</textarea>
-        </li>
-        
-    </div>
-    <div class="inf_contacto-box" >
-        <li class="inf_contacto-block">
-            <input class=".inf_contacto-block-1" type="number" placeholder="Valor del producto" name="precio">
-        </li>
-        <li class="inf_contacto-block">
-            <input class=".inf_contacto-block-1" type="number" placeholder="Unidades" name="unidades">
-        </li>
+                <div class="inf_contacto-box">
+                    <li class="inf_contacto-block">
+                        <textarea name="descripcion" rows="7" cols="auto" 
+                        value="<%= locals.oldData ? oldData.descripcion : null %>">Componentes del producto</textarea>
+                        <!-- <input class=".inf_contacto-block-1" type="text" placeholder="Descripcion del producto" name="descripcion">-->
+                        <% if (locals.errors && errors.descripcion) { %>
+                            <div class="text-danger">
+                                <%= errors.descripcion.msg %> 
+                            </div>
+                        <% } %>
+                    </li>
+                </div>
 
-    </div>
+                <div class="inf_contacto-box">
+                    <li class="inf_contacto-block">
+                        <!--<input class=".inf_contacto-block-1" t placeholder="Componentes del producto" name="componentes"> -->
+                        <textarea name="componentes" rows="7" cols="auto"
+                        value="<%= locals.oldData ? oldData.componentes : null %>">Componentes del producto</textarea>
+                        <% if (locals.errors && errors.componentes) { %>
+                            <div class="text-danger">
+                                <%= errors.componentes.msg %> 
+                            </div>
+                        <% } %>
+                    </li>
 
-    <div class="inf_contacto-box">
-        <li class="inf_contacto-block">
-            <select  class="" name="category" id="">
-                <% for (let  i = 0  ; i<categoria.length ; i++ ) { %>
-                <option value="<%= categoria[i].idcategoria %>"> <%= categoria[i].nombre %> </option>
-                <% } %>
-            </select>
-        </li>     
-    </div>
+                </div>
+                <div class="inf_contacto-box">
+                    <li class="inf_contacto-block">
+                        <input class=".inf_contacto-block-1" type="number" placeholder="Valor del producto"
+                            name="precio" value="<%= locals.oldData ? oldData.precio : null %>">
+                    </li>
+                        <% if (locals.errors && errors.precio) { %>
+                            <div class="text-danger">
+                                <%= errors.precio.msg %> 
+                            </div>
+                        <% } %>
+                    <li class="inf_contacto-block">
+                        <input class=".inf_contacto-block-1" type="number" placeholder="Unidades" name="unidades"
+                        value="<%= locals.oldData ? oldData.unidades : null %>">
+                    </li>
+                    <% if (locals.errors && errors.unidades) { %>
+                        <div class="text-danger">
+                            <%= errors.unidades.msg %> 
+                        </div>
+                    <% } %>
 
-    <div class="inf_contacto-box" >
-        <label for=""><h2>Imagenes del producto</h2></label>
-        <li class="inf_contacto-block">
-            <input class=".inf_contacto-block-1" type="file" placeholder="Valor del producto" name="img">
-        </li>
-    </div>
-    
-    <div class="button_contenedor">
-        <button class="button" type="submit">Agregar</button> 
-        <button class="button" type="reset">Cancelar</button>
-    </div>
+                </div>
 
-</form>
+                <div class="inf_contacto-box">
+                    <li class="inf_contacto-block">
+                        <select class="" name="category" id="">
+                            <% for (let i=0 ; i<categoria.length ; i++ ) { %>
+                                <option value="<%= categoria[i].idcategoria %>">
+                                    <%= categoria[i].nombre %>
+                                </option>
+                                <% } %>
+                        </select>
+                    </li>
+                </div>
+
+                <div class="inf_contacto-box">
+                    <label for="">
+                        <h2>Imagenes del producto</h2>
+                    </label>
+                    <li class="inf_contacto-block">
+                        <input class=".inf_contacto-block-1" type="file" placeholder="Valor del producto" name="img">
+                    </li>
+                </div>
+
+                <div class="button_contenedor">
+                    <button class="button" type="submit">Agregar</button>
+                    <button class="button" type="reset">Cancelar</button>
+                </div>
+
+            </form>
 
 
 
-<%- include('../partials/footer.ejs') %>
-    
-</body>
+            <%- include('../partials/footer.ejs') %>
+
+    </body>
+
 </html>
