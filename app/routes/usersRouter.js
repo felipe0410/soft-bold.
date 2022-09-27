@@ -2,12 +2,14 @@ var express = require('express');
 var router = express.Router();
 const userController = require("../controllers/userController")
 const {body} = require("express-validator");
+// Middleware de session
+var session = require("../middlewares/sessionMiddleware") 
 // validaciones _______________________________
     //validacion_formulario_de_productos
     var validacionRegistro = require("../middlewares/validacionRegistro")
 
 /* GET users listing. */
-router.get('/', userController.users );
+router.get('/',session,userController.users );
 router.post('/', userController.loggin );
 
 //carrito

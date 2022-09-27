@@ -6,6 +6,7 @@ const db = require("../database/models");
 const bcryptjs = require("bcryptjs");
 const usuario = require('../database/models/usuario');
 const { validationResult } = require("express-validator");
+const session = require('express-session');
 
 
 
@@ -30,7 +31,7 @@ const userController = {
 
   loggin:  async function (req, res, next) {
     try {
-    let busqueda = await db.usuario.findOne({where:{Email:req.body.Email}});
+    let busqueda = await db.usuario.findOne({raw:true, where:{Email:req.body.Email}});
     
     if(!req.body.Email){ 
       res.render('./user/Usuario', {
@@ -39,12 +40,14 @@ const userController = {
       if (busqueda) {
         let comparacion = bcryptjs.compareSync(req.body.Contraseña, busqueda.Contraseña);
             if (comparacion) {
-             /*delete busqueda.Contraseña;
-              req.session.userLogged = comparacion;
-              if (req.body.remember) {
+              delete busqueda.Contraseña;
+              req.session.userLogged = busqueda;
+              console.log(req.session)
+             /*  if (req.body.remember) {
                 res.cookie('email', req.body.email, { maxAge: (1000*60)*15 })
-              }*/
-              if(busqueda.admin){res.redirect('/users/ingreso')}else{res.redirect('/users/ingreso2')}
+              } */
+              if(busqueda.admin){res.redirect('/users/ingreso'/* ,{usuario: session.userLogged} */)}
+              else{res.redirect('/users/ingreso2',/* {usuario: session.userLogged} */)}
             }
             else {
               res.render('./user/Usuario', {

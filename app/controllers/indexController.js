@@ -41,24 +41,26 @@ const indexController = {
     const resultValidation = validationResult(req);
     if (resultValidation.errors.length > 0) {
       let categoria = await db.categoria.findAll()
-      return res.render('./product/newProduct', {errors:resultValidation.mapped(), oldData:req.body,
-        categoria:categoria});
+      return res.render('./product/newProduct', {
+        errors: resultValidation.mapped(), oldData: req.body,
+        categoria: categoria
+      });
     }
-      db.producto.create({
-        Nombre_Producto: req.body.nombre,
-        Marca: req.body.marca,
-        Precio: req.body.precio,
-        Unidades: req.body.unidades,
-        Descripcion: req.body.descripcion,
-        Componentes: req.body.componentes,
-        imagen: req.file.filename,
+    db.producto.create({
+      Nombre_Producto: req.body.nombre,
+      Marca: req.body.marca,
+      Precio: req.body.precio,
+      Unidades: req.body.unidades,
+      Descripcion: req.body.descripcion,
+      Componentes: req.body.componentes,
+      imagen: req.file.filename,
 
-      }).then(function () {
-        res.redirect('/')
-      })
+    }).then(function () {
+      res.redirect('/')
+    })
   },
   //formulario de contacto____________________________________________
-  inf_contacto: function (req,res,next) {
+  inf_contacto: function (req, res, next) {
     res.render('./user/inf_contacto');
   },
 
@@ -79,29 +81,47 @@ const indexController = {
   editando: function (req, res, next) {
     let producto = db.producto.findByPk(req.params.id)
     let categorias = db.categoria.findAll()
-
     Promise.all([producto, categorias])
       .then(function ([producto, categoria]) {
-        res.render("./product/editarProducto", { producto: producto, categoria: categoria })
+        res.render("./product/editarProducto", {producto:producto,categoria:categoria})
       })
   },
   //edicion por post funcion______________________________________________
-  editado: function (req, res) {
-    db.producto.update({
-      Nombre_Producto: req.body.nombre,
-      Marca: req.body.marca,
-      Precio: req.body.precio,
-      Unidades: req.body.unidades,
-      Descripcion: req.body.descripcion,
-      Componentes: req.body.componentes,
-      imagen: req.file.filename,
-    }, {
-      where: {
-        ID_producto: req.params.id
-      }
-    }).then(function () {
-      res.redirect("/detalle/" + req.params.id)
-    })
+  editado: async function (req, res) {
+    const resultValidation = validationResult(req);
+    console.log(resultValidation)
+    if (resultValidation.errors.length > 0) {
+      let producto = db.producto.findByPk(req.params.id)
+    let categorias = db.categoria.findAll()
+    Promise.all([producto, categorias])
+      .then(function ([producto, categoria]) {
+        res.render("./product/editarProducto", {producto:producto,categoria:categoria,errors: resultValidation.mapped()})
+      })
+
+      /* let categoria = await db.categoria.findAll()
+      return res.render('./product/editarProducto', {
+        errors: resultValidation.mapped(), oldData: req.body,
+        categoria: categoria
+      }) */
+      
+    } else{
+      db.producto.update({
+        Nombre_Producto: req.body.nombre,
+        Marca: req.body.marca,
+        Precio: req.body.precio,
+        Unidades: req.body.unidades,
+        Descripcion: req.body.descripcion,
+        Componentes: req.body.componentes,
+        imagen: req.file.filename,
+      }, {
+        where: {
+          ID_producto: req.params.id
+        }
+      }).then(function () {
+        res.redirect("/detalle/" + req.params.id)
+      })
+    }
+
   },
   //borrado de productos_________________________________________________
   borrar: function (req, res) {

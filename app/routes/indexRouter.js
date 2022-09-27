@@ -26,7 +26,7 @@ const {body} = require("express-validator");
     router.get('/listado', indexController.listado );
 //editar producto_________________________________________________________________
     router.get('/edit/:id',indexController.editando);
-    router.post('/edit/:id',uploadFile.single("img"),indexController.editado);
+    router.post('/edit/:id',uploadFile.single("img"),validacionProducto,indexController.editado);
 //borrar producto__________________________________________________________________
     router.post('/borrar/:id',indexController.borrar);
 module.exports = router;
