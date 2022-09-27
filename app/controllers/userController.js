@@ -5,49 +5,57 @@ const fs = require('fs');
 const db = require("../database/models");
 const bcryptjs = require("bcryptjs");
 const usuario = require('../database/models/usuario');
+const { validationResult } = require("express-validator");
+
 
 
 
 const userController = {
+  /* formulario de ingreso */
   users: function (req, res, next) {
     res.render('./user/Usuario');
   },
+  /* formulario de contacto carrito  GET*/
   contacto: function (req, res, next) {
     res.render("./user/inf_contacto")
   },
+  /* formulario de pago carrito GET */
   pago: function (req, res, next) {
     res.render("./user/medios_pago")
   },
+  /* formulario de registro GET */
   registro: function (req, res, next) {
     res.render("./user/registro")
   },
 
   loggin:  async function (req, res, next) {
+    try {
     let busqueda = await db.usuario.findOne({where:{Email:req.body.Email}});
-     //return console.log(busqueda.Contraseña)
+    
+    if(!req.body.Email){ 
+      res.render('./user/Usuario', {
+      errors: {correo: { msg: "Debes escribir un correo"}}
+    })}
       if (busqueda) {
         let comparacion = bcryptjs.compareSync(req.body.Contraseña, busqueda.Contraseña);
-        console.log(comparacion)
             if (comparacion) {
-             /*  delete busqueda.Contraseña;
+             /*delete busqueda.Contraseña;
               req.session.userLogged = comparacion;
               if (req.body.remember) {
                 res.cookie('email', req.body.email, { maxAge: (1000*60)*15 })
-              } */
-              res.redirect('/users/ingreso')
+              }*/
+              if(busqueda.admin){res.redirect('/users/ingreso')}else{res.redirect('/users/ingreso2')}
             }
             else {
               res.render('./user/Usuario', {
-                errors: {
-                  email: {
-                    msg: "Las credenciales son invalidas"
-                  }
-                }
+                errors: {correo:{msg:"Las credenciales son invalidas"}}
               })
             }
-
-        
       }
+    } catch (error) {
+      console.log(error)
+    }
+    
     
   },
 
@@ -55,12 +63,21 @@ const userController = {
     res.render("./user/ingresoUsuario")
   },
 
+  ingreso2: function (req, res, next) {
+    res.render("./user/ingresoUsuario2")
+  },
 
-  registrando: function (req, res, next) {
-    /* if (db.usuario.findByPk(req.body.correo)) {
-      res.send("ya existe el correo en la base de datos")
-      res.redirect("/users")
-    } */
+  registrando: async function (req, res, next) {
+    let Email = await db.usuario.findOne({where:{Email:req.body.correo}});
+    const resultValidation = validationResult(req);
+    console.log(resultValidation)
+    if (Email){
+      return res.render('./user/registro', {errors: {correo: {msg: "Este correo ya esta en uso"}},oldData:req.body
+      })
+    }
+    if (resultValidation.errors.length > 0) {
+      return res.render('./user/registro', {errors:resultValidation.mapped(), oldData:req.body});
+    }
     db.usuario.create({
       Nombres: req.body.nombre,
       Apellidos: req.body.apellidos,

@@ -459,6 +459,11 @@ form .inf_contacto-box select {
 .inf_contacto-box label{
   margin: 0 auto;
 }
+/* validaciones */
+.text-danger{
+  margin: 0 auto;
+  color: red;
+}
 
 
 

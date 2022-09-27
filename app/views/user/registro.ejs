@@ -13,34 +13,55 @@
 <form action="/users/register" method="post">
     <div class="inf_contacto-box" >
         <li class="inf_contacto-block">
-            <input class=".inf_contacto-block-1" type="email" placeholder="Correo electronico" name="correo">
+            <input class=".inf_contacto-block-1" type="email" placeholder="Correo electronico" name="correo"
+            value="<%= locals.oldData ? oldData.correo : null %>" name="nombre">
         </li>
+        <% if (locals.errors && errors.correo) { %>
+            <div class="text-danger">
+                <label><%= errors.correo.msg %></label>
+            </div>
+        <% } %>
+    </div>
+    <div class="inf_contacto-box" >
+        <li class="inf_contacto-block">
+            <input class=".inf_contacto-block-1" type="text" placeholder="Nombres" name="nombre"
+            value="<%= locals.oldData ? oldData.nombre : null %>" name="nombre">
+        </li>
+        <% if (locals.errors && errors.nombre) { %>
+            <div class="text-danger">
+                <label><%= errors.nombre.msg %></label>
+            </div>
+        <% } %>
     </div>
 
     <div class="inf_contacto-box" >
         <li class="inf_contacto-block">
-            <input class=".inf_contacto-block-1" type="text" placeholder="Nombres" name="nombre">
+            <input class=".inf_contacto-block-1" type="text" placeholder="Apellidos" name="apellidos"
+            value="<%= locals.oldData ? oldData.apellidos : null %>" name="nombre">
         </li>
+        <% if (locals.errors && errors.apellidos) { %>
+            <div class="text-danger">
+                <label><%= errors.apellidos.msg %></label>
+            </div>
+        <% } %>
     </div>
 
     <div class="inf_contacto-box" >
         <li class="inf_contacto-block">
-            <input class=".inf_contacto-block-1" type="text" placeholder="Apellidos" name="apellidos">
+            <input class=".inf_contacto-block-1" type="password" placeholder="contraseña" name="contraseña"
+            value="<%= locals.oldData ? oldData.contraseña : null %>" name="nombre">
         </li>
-    </div>
-
-    <div class="inf_contacto-box" >
-        <li class="inf_contacto-block">
-            <input class=".inf_contacto-block-1" type="password" placeholder="contraseña" name="contraseña">
-        </li>
+        <% if (locals.errors && errors.contraseña) { %>
+            <div class="text-danger">
+                <label><%= errors.contraseña.msg %></label>
+            </div>
+        <% } %>
     </div>
     <div class="button_contenedor">
         <button class="button" type="submit">Registrarse</button> 
         <button class="button" type="reset">Cancelar</button>
     </div>
-
 </form>
 <%- include('../partials/footer.ejs') %>
-    
 </body>
 </html>

@@ -18,9 +18,9 @@
                         <input class=".inf_contacto-block-1" type="text" placeholder="Nombre del producto"
                          value="<%= locals.oldData ? oldData.nombre : null %>" name="nombre">
                     </li>
-							<% if (locals.errors && errors.name) { %>
+							<% if (locals.errors && errors.nombre) { %>
 								<div class="text-danger">
-									<h4><%= errors.name.msg %></h4>
+									<label><%= errors.nombre.msg %></label>
 								</div>
 							<% } %>
                 </div>

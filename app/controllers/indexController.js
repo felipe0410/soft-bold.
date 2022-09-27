@@ -37,15 +37,13 @@ const indexController = {
       })
   },
   //creacion por post________________________________________________
-  newProductFunction: function (req, res) {
+  newProductFunction: async function (req, res) {
     const resultValidation = validationResult(req);
     if (resultValidation.errors.length > 0) {
-      let categoria = db.categoria.findAll()
-      Promise.all([categoria]).then(function(categoria){
+      let categoria = await db.categoria.findAll()
       return res.render('./product/newProduct', {errors:resultValidation.mapped(), oldData:req.body,
         categoria:categoria});
-    })
-		}
+    }
       db.producto.create({
         Nombre_Producto: req.body.nombre,
         Marca: req.body.marca,
@@ -60,7 +58,7 @@ const indexController = {
       })
   },
   //formulario de contacto____________________________________________
-  inf_contacto: function (req, res, next) {
+  inf_contacto: function (req,res,next) {
     res.render('./user/inf_contacto');
   },
 
