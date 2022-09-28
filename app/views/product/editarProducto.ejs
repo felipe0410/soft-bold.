@@ -14,6 +14,7 @@
     <div class="inf_contacto-box" >
         <li class="inf_contacto-block">
             <input value="<%= producto.Nombre_Producto%>" class=".inf_contacto-block-1" type="text" placeholder="Nombre del producto" name="nombre">
+            <span></span>
             <% if (locals.errors && errors.nombre) { %>
                 <div class="text-danger">
                     <label><%= errors.nombre.msg %></label>
@@ -25,6 +26,7 @@
     <div class="inf_contacto-box" >
         <li class="inf_contacto-block">
             <input value="<%= producto.Marca%>" class=".inf_contacto-block-1" type="text" placeholder="Marca del producto" name="marca">
+            <span></span>
             <% if (locals.errors && errors.marca) { %>
                 <div class="text-danger">
                     <label><%= errors.marca.msg %></label>
@@ -36,6 +38,7 @@
     <div class="inf_contacto-box" >
         <li class="inf_contacto-block">
             <textarea  name="descripcion" rows="7" cols="auto"><%= producto.Descripcion%></textarea>
+            <span></span>
             <% if (locals.errors && errors.descripcion) { %>
                 <div class="text-danger">
                     <label><%= errors.descripcion.msg %></label>
@@ -46,8 +49,8 @@
 
     <div class="inf_contacto-box" >
         <li class="inf_contacto-block">
-            <!--<input class=".inf_contacto-block-1" t placeholder="Componentes del producto" name="componentes"> -->
             <textarea name="componentes"  rows="7" cols="auto"><%= producto.Componentes%></textarea>
+            <span></span>
             <% if (locals.errors && errors.componentes) { %>
                 <div class="text-danger">
                     <label><%= errors.componentes.msg %></label>
@@ -59,6 +62,7 @@
     <div class="inf_contacto-box" >
         <li class="inf_contacto-block">
             <input value="<%= producto.Precio%>" class=".inf_contacto-block-1" type="number" placeholder="Valor del producto" name="precio">
+            <span></span>
         </li>
         <% if (locals.errors && errors.precio) { %>
             <div class="text-danger">
@@ -67,6 +71,7 @@
         <% } %>
         <li class="inf_contacto-block">
             <input   value="<%= producto.Unidades%>" class=".inf_contacto-block-1" type="number" placeholder="Unidades" name="unidades">
+            <span></span>
         </li>
         <% if (locals.errors && errors.unidades) { %>
             <div class="text-danger">
@@ -81,6 +86,7 @@
             <select  class="" name="category" id="">
                 <% for (let  i = 0  ; i<categoria.length ; i++ ) { %>
                 <option value="<%= categoria[i].idcategoria %>"> <%= categoria[i].nombre %> </option>
+                <span></span>
                 <% } %>
             </select>
         </li>     
@@ -90,6 +96,7 @@
         <label for=""><h2>Imagenes del producto</h2></label>
         <li class="inf_contacto-block">
             <input class=".inf_contacto-block-1" type="file" name="img">
+            <span></span>
         </li>
     </div>
     
@@ -103,6 +110,6 @@
     </div>
 </form>
 <%- include('../partials/footer.ejs') %>
-    
+<script src="/validaciones.js"></script>
 </body>
 </html>

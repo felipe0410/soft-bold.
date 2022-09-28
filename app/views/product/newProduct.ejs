@@ -17,6 +17,7 @@
                     <li class="inf_contacto-block">
                         <input class=".inf_contacto-block-1" type="text" placeholder="Nombre del producto"
                          value="<%= locals.oldData ? oldData.nombre : null %>" name="nombre">
+                         <span></span>
                     </li>
 							<% if (locals.errors && errors.nombre) { %>
 								<div class="text-danger">
@@ -29,6 +30,7 @@
                     <li class="inf_contacto-block">
                         <input class=".inf_contacto-block-1" type="text" placeholder="Marca del producto" name="marca"
                         value="<%= locals.oldData ? oldData.marca : null %>" >
+                        <span></span>
                     </li>
                     <% if (locals.errors && errors.marca) { %>
                         <div class="text-danger">
@@ -40,8 +42,8 @@
                 <div class="inf_contacto-box">
                     <li class="inf_contacto-block">
                         <textarea name="descripcion" rows="7" cols="auto" 
-                        value="<%= locals.oldData ? oldData.descripcion : null %>">Componentes del producto</textarea>
-                        <!-- <input class=".inf_contacto-block-1" type="text" placeholder="Descripcion del producto" name="descripcion">-->
+                        value="<%= locals.oldData ? oldData.descripcion : null %>">Descripcion del producto</textarea>
+                        <span></span>
                         <% if (locals.errors && errors.descripcion) { %>
                             <div class="text-danger">
                                 <%= errors.descripcion.msg %> 
@@ -55,6 +57,7 @@
                         <!--<input class=".inf_contacto-block-1" t placeholder="Componentes del producto" name="componentes"> -->
                         <textarea name="componentes" rows="7" cols="auto"
                         value="<%= locals.oldData ? oldData.componentes : null %>">Componentes del producto</textarea>
+                        <span></span>
                         <% if (locals.errors && errors.componentes) { %>
                             <div class="text-danger">
                                 <%= errors.componentes.msg %> 
@@ -67,6 +70,7 @@
                     <li class="inf_contacto-block">
                         <input class=".inf_contacto-block-1" type="number" placeholder="Valor del producto"
                             name="precio" value="<%= locals.oldData ? oldData.precio : null %>">
+                        <span></span>
                     </li>
                         <% if (locals.errors && errors.precio) { %>
                             <div class="text-danger">
@@ -76,6 +80,7 @@
                     <li class="inf_contacto-block">
                         <input class=".inf_contacto-block-1" type="number" placeholder="Unidades" name="unidades"
                         value="<%= locals.oldData ? oldData.unidades : null %>">
+                        <span></span>
                     </li>
                     <% if (locals.errors && errors.unidades) { %>
                         <div class="text-danger">
@@ -103,6 +108,7 @@
                     </label>
                     <li class="inf_contacto-block">
                         <input class=".inf_contacto-block-1" type="file" placeholder="Valor del producto" name="img">
+                        <span></span>
                     </li>
                 </div>
 
@@ -116,6 +122,7 @@
 
 
             <%- include('../partials/footer.ejs') %>
+            <script src="/validaciones.js"></script>
 
     </body>
 

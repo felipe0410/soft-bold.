@@ -15,6 +15,7 @@
             <li>
                 <label for="name">USUARIO       :</label>
                 <input type="email" id="user" name="Email">
+                <span></span>
                 <% if (locals.errors && errors.correo) { %>
                     <div class="text-danger">
                         <label><%= errors.correo.msg %></label>
@@ -24,6 +25,7 @@
             <li>
                 <label for="password">CONTRASEÑA        :</label>
                 <input type="password" id="password" name="Contraseña">
+                <span></span>
             </li>
             <li>
                 <a href="/users/register">Registrarse</a>
@@ -43,5 +45,6 @@
 
 </form>
 <%- include('../partials/footer.ejs') %>
+<script src="/validacionesUsuario.js"></script>
 </body>
 </html>

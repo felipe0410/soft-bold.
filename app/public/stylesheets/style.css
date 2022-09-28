@@ -424,6 +424,7 @@ form .inf_contacto-box{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  padding: 2rem;
   
 }
 
@@ -465,6 +466,15 @@ form .inf_contacto-box select {
   color: red;
 }
 
+/* Validaciones del back_________________________________ */
+.invalid {
+  border: solid 1px red;
+  box-shadow: 0 0 10px red;
+}
+.error {
+  color: red;
+  display: block;
+}
 
 
 

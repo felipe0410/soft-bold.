@@ -83,28 +83,27 @@ const indexController = {
     let categorias = db.categoria.findAll()
     Promise.all([producto, categorias])
       .then(function ([producto, categoria]) {
-        res.render("./product/editarProducto", {producto:producto,categoria:categoria})
+        res.render("./product/editarProducto", { producto: producto, categoria: categoria })
       })
   },
   //edicion por post funcion______________________________________________
   editado: async function (req, res) {
     const resultValidation = validationResult(req);
-    console.log(resultValidation)
     if (resultValidation.errors.length > 0) {
       let producto = db.producto.findByPk(req.params.id)
-    let categorias = db.categoria.findAll()
-    Promise.all([producto, categorias])
-      .then(function ([producto, categoria]) {
-        res.render("./product/editarProducto", {producto:producto,categoria:categoria,errors: resultValidation.mapped()})
-      })
+      let categorias = db.categoria.findAll()
+      Promise.all([producto, categorias])
+        .then(function ([producto, categoria]) {
+          res.render("./product/editarProducto", {producto: producto, categoria: categoria, errors: resultValidation.mapped() })
+        })
 
       /* let categoria = await db.categoria.findAll()
       return res.render('./product/editarProducto', {
         errors: resultValidation.mapped(), oldData: req.body,
         categoria: categoria
       }) */
-      
-    } else{
+
+    } else {
       db.producto.update({
         Nombre_Producto: req.body.nombre,
         Marca: req.body.marca,
@@ -112,7 +111,17 @@ const indexController = {
         Unidades: req.body.unidades,
         Descripcion: req.body.descripcion,
         Componentes: req.body.componentes,
-        imagen: req.file.filename,
+        imagen: req.file.filename, /* function (req, res) {
+          if (req.file.filename) {
+            console.log("pase por filename 1")
+            return req.file.filename
+          } else {
+            console.log("pase por filename 2")
+            let producto = db.producto.findByPk(req.params.id)
+            return producto.imagen
+          }
+        } */
+
       }, {
         where: {
           ID_producto: req.params.id
