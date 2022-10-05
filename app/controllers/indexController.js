@@ -22,11 +22,17 @@ const indexController = {
     res.render('./product/carrito');
   },
   //detalle productos __________________________________________________
-  detalle: function (req, res, next) {
-    db.producto.findByPk(req.params.id).then(function (producto) {
+  detalle: async function (req, res, next) {
+    let producto= await db.producto.findByPk(req.params.id)
+    let productos= await db.producto.findAll()
+    Promise.all([producto, productos]).then(function ([producto, productos]) {
       //return console.log(producto);
-      res.render('./product/detalle', { producto });
+      res.render('./product/detalle', { producto,productos });
     })
+
+   
+    
+
   },
   //crear producto______________________________________________________
   //Vista por get___________________________________________________
@@ -38,6 +44,7 @@ const indexController = {
   },
   //creacion por post________________________________________________
   newProductFunction: async function (req, res) {
+    console.log(req.body)
     const resultValidation = validationResult(req);
     if (resultValidation.errors.length > 0) {
       let categoria = await db.categoria.findAll()
@@ -46,18 +53,38 @@ const indexController = {
         categoria: categoria
       });
     }
-    db.producto.create({
-      Nombre_Producto: req.body.nombre,
-      Marca: req.body.marca,
-      Precio: req.body.precio,
-      Unidades: req.body.unidades,
-      Descripcion: req.body.descripcion,
-      Componentes: req.body.componentes,
-      imagen: req.file.filename,
 
-    }).then(function () {
-      res.redirect('/')
-    })
+    let categoria = await db.categoria.findByPk(req.body.categoria)
+    let suma = await categoria.total + 1
+    const actualizacion ={
+      total:suma
+    }
+    db.categoria.update(actualizacion
+      , {
+        where: {
+          idcategoria: req.body.categoria
+        }
+      }).then(
+        db.producto.create({
+          Nombre_Producto: req.body.nombre,
+          Marca: req.body.marca,
+          Precio: req.body.precio,
+          Unidades: req.body.unidades,
+          Descripcion: req.body.descripcion,
+          Componentes: req.body.componentes,
+          imagen: req.file.filename,
+          categoria: req.body.categoria,
+    
+        }).then(function () {
+          res.redirect('/')
+        })     
+      )
+
+      
+
+
+
+    
   },
   //formulario de contacto____________________________________________
   inf_contacto: function (req, res, next) {
@@ -94,41 +121,29 @@ const indexController = {
       let categorias = db.categoria.findAll()
       Promise.all([producto, categorias])
         .then(function ([producto, categoria]) {
-          res.render("./product/editarProducto", {producto: producto, categoria: categoria, errors: resultValidation.mapped() })
+          res.render("./product/editarProducto", { producto: producto, categoria: categoria, errors: resultValidation.mapped() })
         })
-
-      /* let categoria = await db.categoria.findAll()
-      return res.render('./product/editarProducto', {
-        errors: resultValidation.mapped(), oldData: req.body,
-        categoria: categoria
-      }) */
-
     } else {
-      db.producto.update({
+      const productoNuevo = {
         Nombre_Producto: req.body.nombre,
         Marca: req.body.marca,
         Precio: req.body.precio,
         Unidades: req.body.unidades,
         Descripcion: req.body.descripcion,
         Componentes: req.body.componentes,
-        imagen: req.file.filename, /* function (req, res) {
-          if (req.file.filename) {
-            console.log("pase por filename 1")
-            return req.file.filename
-          } else {
-            console.log("pase por filename 2")
-            let producto = db.producto.findByPk(req.params.id)
-            return producto.imagen
+        Componentes: req.body.categoria
+      }
+      if (req.file.filename) {
+        productoNuevo.imagen = req.file.filename
+      }
+      db.producto.update(productoNuevo
+        , {
+          where: {
+            ID_producto: req.params.id
           }
-        } */
-
-      }, {
-        where: {
-          ID_producto: req.params.id
-        }
-      }).then(function () {
-        res.redirect("/detalle/" + req.params.id)
-      })
+        }).then(function () {
+          res.redirect("/detalle/" + req.params.id)
+        })
     }
 
   },

@@ -10,6 +10,11 @@ module.exports = (sequelize, dataTypes) => {
         nombre: {
             type: dataTypes.STRING
         },
+        total:{
+            type: dataTypes.INTEGER
+        }
+        
+        
         
     }
     let config = {
@@ -20,12 +25,9 @@ module.exports = (sequelize, dataTypes) => {
     const categoria = sequelize.define(alias, cols, config);
 
     categoria.associate = function(models){
-        categoria.belongsToMany(models.producto, {
-            as: "categoria_producto",
-            through: "categoria_has_productos",
-            foreignKey: "IDcategoria",
-            otherKey: "ID_producto",
-            timestamps: false
+        categoria.hasMany(models.producto, {
+            as: "categoria",
+            foreignKey: 'categoria'
         })
     }
     return categoria;

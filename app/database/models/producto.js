@@ -1,3 +1,4 @@
+const categoria = require("./categoria");
 
 module.exports = (sequelize, dataTypes) => {
     let alias = "producto";
@@ -28,7 +29,10 @@ module.exports = (sequelize, dataTypes) => {
         },
         imagen: {
             type: dataTypes.STRING
-        }
+        },
+        categoria:{
+            type: dataTypes.INTEGER
+        },
         
     }
     let config = {
@@ -36,23 +40,21 @@ module.exports = (sequelize, dataTypes) => {
         timestamps: false
     }
     
-    const producto = sequelize.define(alias, cols, config);
+    const producto = sequelize.define(alias,cols,config);
 
     producto.associate = function(models){
-        producto.belongsToMany(models.categoria, {
-            as: "producto_categoria",
-            through: "categoria_has_productos",
-            foreignKey: "ID_producto",
-            otherKey: "IDcategoria",
-            timestamps: false
-        }),
-        producto.belongsToMany(models.carrito, {
+        producto.belongsTo(models.categoria, {
+            as: "productos-categoria",
+            foreignKey: 'categoria'
+        })
+
+       /*  producto.belongsToMany(models.carrito, {
             as: "productos_carrito",
             through: "productos",
             foreignKey: "ID_producto",
             otherKey: "ID_compra",
             timestamps: false
-        })
+        }) */
     }
     return producto;
 }

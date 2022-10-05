@@ -1,7 +1,7 @@
 const nombreField = document.querySelector("[name=nombre]");
 const marcaField = document.querySelector("[name=marca]");
 const descripcionField = document.querySelector("[name=descripcion]");
-const componenetesField = document.querySelector("[name=componentes]");
+const componenentesField = document.querySelector("[name=componentes]");
 const precioField = document.querySelector("[name=precio]");
 const unidadesField = document.querySelector("[name=unidades]");
 const imagenField = document.querySelector("[name=img]");
@@ -61,12 +61,12 @@ marcaField.addEventListener("blur", (e) => validateEmptyField("Debes escribir un
 
 descripcionField.addEventListener("blur", (e) => validateEmptyField("Debes escribir una DESCIPCION DEL PRODUCTO", e),
 (e) => validateCharacters("Este campo no debe contener mas de 340 caracteres", e));
-descripcionField.addEventListener("blur", (e) => validateCharacters("Este campo no debe contener mas de 340 caracteres", e));
+//descripcionField.addEventListener("blur", (e) => validateCharacters("Este campo no debe contener mas de 340 caracteres", e));
 
-componenetesField.addEventListener("blur", (e) => validateEmptyField("Debes escribir los COMPONENTES", e),
+componenentesField.addEventListener("blur", (e) => validateEmptyField("Debes escribir los COMPONENTES", e),
 (e) => validateCharacters("Este campo no debe contener mas de 340 caracteres", e));
 
-componenetesField.addEventListener("blur",(e) => validateCharacters("Este campo no debe contener mas de 340 caracteres", e));
+//componenentesField.addEventListener("blur",(e) => validateCharacters("Este campo no debe contener mas de 340 caracteres", e));
 
 precioField.addEventListener("blur", (e) => validateEmptyField("Debes escribir un PRECIO", e));
 unidadesField.addEventListener("blur", (e) => validateEmptyField("Debes escribir las UNDIDADES DISPONIBLES", e));

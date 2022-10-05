@@ -9,6 +9,8 @@ var indexRouter = require('./routes/indexRouter');
 var usersRouter = require('./routes/usersRouter');
 const session = require('express-session');
 var app = express();
+const cors = require("cors")
+app.use(cors())
 
 app.use(session({
   secret: "es secreto",
